@@ -1,4 +1,5 @@
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -17,11 +18,10 @@
 size_t sp = 0;   // aka unsigned long -- printf using %zu
 double val[MAXVAL];   // stack of values
 double variables[ENGLISH];
-
 char buf[BUFSIZ];
 size_t bufp = 0;
-//===========
 
+//===========
 int getch_(void) { return (bufp > 0) ? buf[--bufp] : getchar(); }
 void ungetch_(int c) {
   if (bufp >= BUFSIZ) { fprintf(stderr, "ungetch: too many characters\n");  return; }
@@ -97,7 +97,6 @@ void math(char* s){
     else if(strcmp(s, "sqrt") == 0){
         result = sqrt(pop());
     }
-
     printf("    %0.3f\n", result);
     push(result);
 }
@@ -112,7 +111,7 @@ void variables_(char* s){
 }
 //=========
 void stacks(char* s){
-  ++s;
+    ++s;
     double op1,op2, result = 0;
 
     if(strcmp(s, "clear") == 0){
@@ -142,7 +141,6 @@ void stacks(char* s){
     printf("    %0.3f\n", result);
 }
 //========
-
 void rpn(void) {
   int type;
   double op2;
@@ -172,10 +170,8 @@ void rpn(void) {
     }
   }
 }
-
 int main(int argc, const char * argv[]) {
   rpn();
 
   return 0;
 }
-
