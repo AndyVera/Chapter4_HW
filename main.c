@@ -98,7 +98,7 @@ void math(char* s){
         result = sqrt(pop());
     }
 
-    printf("    %f\n", result);
+    printf("    %0.3f\n", result);
     push(result);
 }
 //=========
@@ -112,15 +112,16 @@ void variables_(char* s){
 }
 //=========
 void stacks(char* s){
+  ++s;
     double op1,op2, result = 0;
 
-    if(strcmp(s, "@clear") == 0){
+    if(strcmp(s, "clear") == 0){
         //to clear the stack so nothing is in it
         sp = 0;
         result = val[sp - 1];
     }
     
-    else if(strcmp(s, "@swap") == 0){
+    else if(strcmp(s, "swap") == 0){
         op1 = pop();
         op2 = pop();
         
@@ -129,16 +130,16 @@ void stacks(char* s){
 
         result = val[sp - 1];
     }
-    else if(strcmp(s, "@top") == 0){
+    else if(strcmp(s, "top") == 0){
         //not popping the value just showing what the top value of stack is
         result = val[sp - 1];
     }
-    else if(strcmp(s, "@dup") == 0){
+    else if(strcmp(s, "dup") == 0){
         //duplicates the top value by obtaining the top value without popping it and pushing it into the stack
         result = val[sp - 1];
         push(result);
     }
-    printf("    %f\n", result);
+    printf("    %0.3f\n", result);
 }
 //========
 
