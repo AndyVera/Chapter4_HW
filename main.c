@@ -164,9 +164,6 @@ void rpn(void) {
             break;
  
       default:
-            if(isalpha(type) && type != 't' && type != 'c' && type != 'm' && type != 'd' && type != 'e' && type != 's' && type != 'p'){
-                push(type);
-            }
       fprintf(stderr, "unknown command %s\n", s);  break;
     }
   }
