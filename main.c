@@ -118,7 +118,6 @@ void stacks(char* s){
         //to clear the stack so nothing is in it
         sp = 0;
         result = val[sp - 1];
-        printf("    %f\n", result);
     }
     
     else if(strcmp(s, "@swap") == 0){
@@ -129,20 +128,17 @@ void stacks(char* s){
         push(op2);
 
         result = val[sp - 1];
-        printf("    %f\n", result);
-        
     }
     else if(strcmp(s, "@top") == 0){
         //not popping the value just showing what the top value of stack is
-        op1 = val[sp - 1];
-        printf("    %f\n", op1);
+        result = val[sp - 1];
     }
     else if(strcmp(s, "@dup") == 0){
         //duplicates the top value by obtaining the top value without popping it and pushing it into the stack
-        op1 = val[sp - 1];
-        printf("    %f\n", op1);
-        push(op1);
+        result = val[sp - 1];
+        push(result);
     }
+    printf("    %f\n", result);
 }
 //========
 
@@ -181,3 +177,4 @@ int main(int argc, const char * argv[]) {
 
   return 0;
 }
+
